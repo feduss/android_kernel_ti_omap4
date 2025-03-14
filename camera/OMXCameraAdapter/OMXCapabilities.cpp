@@ -1969,7 +1969,7 @@ status_t OMXCameraAdapter::insertDefaults(CameraProperties::Properties* params, 
     params->set(CameraProperties::SUPPORTED_EV_STEP, DEFAULT_EV_STEP);
     params->set(CameraProperties::EXPOSURE_MODE, DEFAULT_EXPOSURE_MODE);
     params->set(CameraProperties::FLASH_MODE, DEFAULT_FLASH_MODE);
-    pos = strstr(params->get(CameraProperties::SUPPORTED_FOCUS_MODES), DEFAULT_FOCUS_MODE_PREFERRED);
+    pos = strcpy(pos, strstr(params->get(CameraProperties::SUPPORTED_FOCUS_MODES), DEFAULT_FOCUS_MODE_PREFERRED));
     if ( NULL != pos )
         {
         params->set(CameraProperties::FOCUS_MODE, DEFAULT_FOCUS_MODE_PREFERRED);

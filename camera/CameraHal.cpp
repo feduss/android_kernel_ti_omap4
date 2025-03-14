@@ -1597,7 +1597,10 @@ status_t CameraHal::allocVideoBufs(uint32_t width, uint32_t height, uint32_t buf
       for (unsigned int i = 0; i< bufferCount; i++){
         android::GraphicBufferAllocator &GrallocAlloc = android::GraphicBufferAllocator::get();
         buffer_handle_t handle;
-#ifdef ANDROID_API_N_MR1_OR_LATER
+#ifdef ANDROID_API_O_OR_LATER
+	int layerCount = 1;
+	ret = GrallocAlloc.allocate(width, height, HAL_PIXEL_FORMAT_NV12, layerCount, CAMHAL_GRALLOC_USAGE, &handle, &stride, i, "OMAP Camera");
+#elif ANDROID_API_N_MR1_OR_LATER
         ret = GrallocAlloc.allocate(width, height, HAL_PIXEL_FORMAT_NV12, CAMHAL_GRALLOC_USAGE, &handle, &stride, i, "OMAP Camera");
 #else
         ret = GrallocAlloc.alloc(width, height, HAL_PIXEL_FORMAT_NV12, CAMHAL_GRALLOC_USAGE, &handle, &stride);

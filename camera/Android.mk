@@ -6,7 +6,8 @@ TI_CAMERAHAL_COMMON_CFLAGS := \
     $(ANDROID_API_CFLAGS) \
     -DLOG_TAG=\"CameraHal\" \
     -DCOPY_IMAGE_BUFFER \
-    -fno-short-enums
+    -fno-short-enums \
+    -DBOARD_USE_MOTOROLA_DOMX_ENHANCEMENTS
 
 TI_CAMERAHAL_COMMON_CPPFLAGS :=
 
@@ -204,7 +205,8 @@ TI_CAMERAHAL_COMMON_INCLUDES += $(HARDWARE_TI_OMAP4_BASE)/libion
 TI_CAMERAHAL_OMX_SHARED_LIBRARIES := \
     libmm_osal \
     libOMX_Core \
-    libdomx
+    libdomx \
+    libsensor
 
 
 ifdef OMAP_ENHANCEMENT_CPCAM
