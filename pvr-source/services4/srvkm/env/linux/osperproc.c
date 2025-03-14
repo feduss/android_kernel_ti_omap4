@@ -88,9 +88,11 @@ PVRSRV_ERROR OSPerProcessPrivateDataInit(IMG_HANDLE *phOsPrivateData)
 #if defined(SUPPORT_ION)
 	OSSNPrintf(psEnvPerProc->azIonClientName, ION_CLIENT_NAME_SIZE, "pvr_ion_client-%d", OSGetCurrentProcessIDKM());
 	psEnvPerProc->psIONClient =
-		ion_client_create(gpsIonDev,
-						  psEnvPerProc->azIonClientName);
- 
+		ion_client_create(
+                    gpsIonDev,
+                    psEnvPerProc->azIonClientName
+                 );
+
 	if (IS_ERR_OR_NULL(psEnvPerProc->psIONClient))
 	{
 		PVR_DPF((PVR_DBG_ERROR, "OSPerProcessPrivateDataInit: Couldn't create "

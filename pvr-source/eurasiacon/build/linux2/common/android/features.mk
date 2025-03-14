@@ -38,7 +38,7 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ### ###########################################################################
 
-include ../common/android/platform_version.mk
+include platform_version.mk
 
 # Basic support option tuning for Android
 #
